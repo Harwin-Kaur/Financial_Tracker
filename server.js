@@ -2,6 +2,13 @@ import express from 'express';
 const app = express()
 const PORT = process.env.PORT  || 8000;
 
+//connect to database
+
+
+//Middlewares
+
+app.use(express.json());
+
 // API endpoints
 import userRouter from './routers/userRouter.js';
 app.use("/api/v1/users", userRouter);
