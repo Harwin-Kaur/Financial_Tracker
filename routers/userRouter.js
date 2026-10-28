@@ -4,12 +4,16 @@ import { insertUser} from '../models/user/UserModel.js';
 const router = express.Router();
 
 // User signup
-router.post("/", async(req, res) => {
+router.post("/", async(req, res, next) => {
     try{
     //    console.log(req.body);
 
-    //get the user obj
-    //data verification
+    //encrypt the password
+
+    const hashPass = hashPassword(req.body.password);
+    console.log(hashPass);
+
+    //insert the user
     const user = await insertUser(req.body)
 
     user?._id 
