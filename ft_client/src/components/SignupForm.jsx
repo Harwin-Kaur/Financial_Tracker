@@ -3,6 +3,7 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import CustomInput from './CustomInput';
 import { useState} from 'react';
+import { toast } from "react-toastify";
 
  const SignupForm = () => {
 
@@ -39,16 +40,17 @@ const handleOnChange = (e) => {
     });
 };
 
-const handleOnSubmit = (e) => {
+const handleOnSubmit = async (e) => {
    
     e.preventDefault();
 
-    const {confirmPassword, ...rest} = form
+    const {confirmPassword, ...rest} = form;
 
     if(confirmPassword !== rest.password){
-        return alert("Password do not match");
+        return toast.error("Password do not match");
     }
-     console.log(form);
+    //  console.log(form);
+    const data = postNewUser(rest)
 }
 
   return (
