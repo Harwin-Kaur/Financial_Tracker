@@ -4,6 +4,7 @@ import Button from 'react-bootstrap/Button';
 import CustomInput from './CustomInput';
 import { useState} from 'react';
 import { toast } from "react-toastify";
+import {postNewUser} from '../../helper/axiosHelper';
 
  const SignupForm = () => {
 
@@ -50,8 +51,9 @@ const handleOnSubmit = async (e) => {
         return toast.error("Password do not match");
     }
     //  console.log(form);
-    const data = postNewUser(rest)
-}
+    const { status, message } = await postNewUser(rest)
+    toast[status](message);
+  };
 
   return (
     <div className='border p-4 rounded'>
