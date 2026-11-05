@@ -28,9 +28,14 @@ router.post("/", async(req, res, next) => {
         message: "Failed to create account"
        });
     }catch(error){
+        let msg = error.message;
+         if (msg.includes("E11000 duplicate key error collection")){
+            msg = "There is another user have used this email, try to login or use another email";
+         }
+
          res.json({
             status: "error",
-            message: error.message,
+            message: msg,
          });
     }
 })
