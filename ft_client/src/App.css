@@ -3,3 +3,7 @@
     background: #000;
     color:aliceblue;
 }
+
+.main{
+    min-height: calc(100vh - 150px);
+}
