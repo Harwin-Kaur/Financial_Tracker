@@ -59,7 +59,8 @@ export const FinancialTips = () => {
 
     const {tip, quote} = showQuote;
   return (
-    <div className= 'd-flex flex-column justify-content-center' style={{height: '100%'}}>
+    
+      <div>
       <div className="mb-5"><GrMoney className="text-success" style={{fontSize: "10rem"}} /></div>
       <div>Watch your Money Grow!</div>
       <h3>{tip}</h3>

@@ -1,14 +1,25 @@
 import React from 'react';
-import { Container, Row, Col } from 'react';
-import { SignupForm } from '../components/SignupForm';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import SignInForm from '../components/SignInForm';
+import { BsGraphDown } from "react-icons/bs";
+import { BsGraphUp } from "react-icons/bs";
+
 
 const Login = () => {
     return <Container className="p-5">
         <Row className= "bg-dark mt-5 p-5 rounded">
+            <Col md={6}><SignInForm />{""}</Col>
+
             <Col md={6}>
-                <div className= 'd-flex flex-column justify-content-center' style={{height: '100%'}}> </div>
+                <div className= 'd-flex flex-column justify-content-center fs-1' style={{height: '100%'}}> 
+
+                    <div className="text-danger text-decoration-line-through">{" "} <BsGraphDown /> Reduce Your Enxpenses</div>
+                    <div className="text-success">{" "} <BsGraphUp /> Increase Your Income</div>
+                    
+                </div> 
             </Col>
-            <Col md={6}><SignupForm />{""}</Col>
         </Row>
     </Container>
 };
