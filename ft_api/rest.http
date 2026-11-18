@@ -15,5 +15,12 @@ Content-Type: application/json
     "password": "102"
 }
 
+### Login user
 
-### Transactions
+POST http://localhost:8000/api/v1/users/login
+Content-Type: application/json
+
+{
+    "email": "b@b.com",
+    "password": "102"
+}
