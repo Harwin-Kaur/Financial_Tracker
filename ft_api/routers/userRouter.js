@@ -3,6 +3,8 @@ import { insertUser} from '../models/user/UserModel.js';
 import { hashPassword} from '../utils/bcryptjs.js';
 import { getUserByEmail} from '../models/user/UserModel.js';
 
+import { comparePassword} from '../utils/bcryptjs.js';
+
 const router = express.Router();
 
 // User signup
@@ -49,7 +51,7 @@ router.post("/login", async (req, res, next) => {
       const { email, password } = req.body;
       if (email && password){
          //2. find the user by email
-      const user = await getUserByEmail(email);
+      const user = await getUserByEmail(email); //if email is not found then it will not run the code inside
       if(user?._id){
 
           //3. match the password
@@ -57,6 +59,9 @@ router.post("/login", async (req, res, next) => {
       const isMatched = comparePassword(password, user.password);
 
       if(isMatched){
+         // if user actually auntheticated then we will create a jwt and store it in db and return the user with jwt token
+
+         user.password = undefined; // we are removing the password from the user object so that it will not be sent to the client
          res.json({
          status: "success",
          message:"Logged in Successfully",
