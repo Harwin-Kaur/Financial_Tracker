@@ -59,7 +59,9 @@ router.post("/login", async (req, res, next) => {
       const isMatched = comparePassword(password, user.password);
 
       if(isMatched){
-         // if user actually auntheticated then we will create a jwt and store it in db and return the user with jwt token
+         // if user actually auntheticated then we will create a jwt and store it in db and return the user{} with jwt token
+
+         const access
 
          user.password = undefined; // we are removing the password from the user object so that it will not be sent to the client
          res.json({
