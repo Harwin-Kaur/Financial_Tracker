@@ -1,10 +1,10 @@
-import jwt from 'jasonwebtoken';
+import jwt from 'jsonwebtoken';
 
-export const singJWT = (obj) => {
-    const token = jwt.sign(obj, process.env.JWT_SECRET,{
-        expiresIn: "1d",
-    });
+export const signJWT = (obj) => {
+    const token = jwt.sign(obj,process.env.JWT_SECRET, {
+    expiresIn: '1d',
+  });
 
     //store in database
     return token;
-}
+};

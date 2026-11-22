@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button';
 import CustomInput from './CustomInput';
 import { useState} from 'react';
 import { toast } from "react-toastify";
-import {postNewUser} from '../../helper/axiosHelper';
+import {postNewUser, loginUser} from '../../helper/axiosHelper';
 import useForm from '../hooks/useForm';
 
 
@@ -45,6 +45,15 @@ const handleOnSubmit = async (e) => {
     e.preventDefault();
 
     console.log(form);
+
+    const pendingResp = loginUser(form);
+    toast.promise(pendingResp, {
+      pending: "Please wait...",
+    });
+
+    const {status, message, user, accessJWT} = await pendingResp;
+    toast[status](message);
+    console.log(user, accessJWT);
   };
 
   return (

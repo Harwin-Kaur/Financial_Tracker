@@ -11,6 +11,8 @@ conMongoDb();
 
 app.use(express.json());
 app.use(cors());
+console.log(process.env.JWT_SECRET);
+console.log('JWT_SECRET loaded:', Boolean(process.env.JWT_SECRET));
 
 // API endpoints
 import userRouter from './routers/userRouter.js';

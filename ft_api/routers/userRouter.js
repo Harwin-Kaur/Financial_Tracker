@@ -4,6 +4,7 @@ import { hashPassword} from '../utils/bcryptjs.js';
 import { getUserByEmail} from '../models/user/UserModel.js';
 
 import { comparePassword} from '../utils/bcryptjs.js';
+import { signJWT } from '../utils/jwt.js';
 
 const router = express.Router();
 
@@ -61,13 +62,16 @@ router.post("/login", async (req, res, next) => {
       if(isMatched){
          // if user actually auntheticated then we will create a jwt and store it in db and return the user{} with jwt token
 
-         const access
+         const accessJWT = signJWT({
+            email:email,
+         })
 
          user.password = undefined; // we are removing the password from the user object so that it will not be sent to the client
          res.json({
          status: "success",
          message:"Logged in Successfully",
          user,
+         accessJWT,
       });
 
       return;

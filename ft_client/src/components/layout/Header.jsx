@@ -7,6 +7,8 @@ import { Link } from 'react-router-dom';
 import { ImExit } from "react-icons/im";
 import { TbLogin } from "react-icons/tb";
 import { IoIosCreate } from "react-icons/io";
+import { AiFillDashboard } from "react-icons/ai";
+import { BsBank } from "react-icons/bs";
 
 
 
@@ -20,6 +22,8 @@ export const Header = () => {
           <Nav className="ms-auto">
             <Link className="nav-link" to="/signup"> <IoIosCreate /> Sign Up</Link>
             <Link className="nav-link" to="/"> <TbLogin /> Login</Link>
+            <Link className="nav-link" to="/dashboard"> <AiFillDashboard /> Dashboard</Link>
+            <Link className="nav-link" to="/transaction"> <BsBank /> Transaction</Link>
             <Link className="nav-link" to="/"> <ImExit /> Logout</Link>
             
           </Nav>

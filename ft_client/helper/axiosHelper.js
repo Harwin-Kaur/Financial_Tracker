@@ -14,7 +14,7 @@ const apiProcessor = async ({ method, url, data }) => {
     catch(error){
         return {
             status: 'error',
-            message: error.message,
+            message: error?.response?.data?.error || error.message,
         }
 
     }
@@ -27,6 +27,19 @@ export const postNewUser = (data) => {
     const obj = {
         method: 'post',
         url: rootApiEp +'/users',
+        data,
+    };
+   return apiProcessor(obj);
+}
+
+
+//login user
+
+export const loginUser = (data) => {
+
+    const obj = {
+        method: 'post',
+        url: rootApiEp +'/users/login',
         data,
     };
    return apiProcessor(obj);
