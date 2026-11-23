@@ -10,9 +10,9 @@ POST http://localhost:8000/api/v1/users
 Content-Type: application/json
 
 {
-    "name": "Prem",
-    "email": "a@b.com",
-    "password": "122"
+    "name": "Harwin",
+    "email": "harwin@harwin.com",
+    "password": "111"
 }
 
 ### Login user

@@ -24,7 +24,7 @@ const initialState = {
     required: true,
     type: "email",
     name: "email",
-    value: form.name
+    value: form.email
   },
 {label: "Password",
     placeholder: "******",
@@ -53,7 +53,11 @@ const handleOnSubmit = async (e) => {
 
     const {status, message, user, accessJWT} = await pendingResp;
     toast[status](message);
+    if (status === "success") {
+  localStorage.setItem("accessJWT", accessJWT);
+}
     console.log(user, accessJWT);
+
   };
 
   return (
