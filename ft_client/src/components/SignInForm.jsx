@@ -17,8 +17,6 @@ const initialState = {
 
   const { form, setForm, handleOnChange } = useForm(initialState);
 
-    
-
   const fields = [{label: "Email",
     placeholder: "john@example.com",
     required: true,

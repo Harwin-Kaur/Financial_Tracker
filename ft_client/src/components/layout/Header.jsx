@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
@@ -9,10 +9,16 @@ import { TbLogin } from "react-icons/tb";
 import { IoIosCreate } from "react-icons/io";
 import { AiFillDashboard } from "react-icons/ai";
 import { BsBank } from "react-icons/bs";
+import { UserContext } from '../../main';
+// import { useContext } from 'react';
 
 
 
 export const Header = () => {
+  const useUser = () => useContext(UserContext);
+  const data = useUser();
+  console.log(data);
+
   return (
     <Navbar expand="lg" variant="dark" className="bg-body-dark">
       <Container>
