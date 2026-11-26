@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import CustomInput from './CustomInput';
@@ -7,6 +7,7 @@ import { toast } from "react-toastify";
 import {postNewUser, loginUser} from '../../helper/axiosHelper';
 import useForm from '../hooks/useForm';
 import { useUser } from '../context/userContext';
+import { useNavigate } from "react-router-dom";
 
 
 const initialState = {
@@ -15,10 +16,14 @@ const initialState = {
 } 
 
 export const SignInForm = () => {
-
+ const navigate = useNavigate()
   const {user, setUser} = useUser();
 
   const { form, setForm, handleOnChange } = useForm(initialState);
+
+  useEffect(() => {
+    user?._id && navigate("/dashboard");
+  }, [user?._id, navigate]);
 
   const fields = [{label: "Email",
     placeholder: "john@example.com",
