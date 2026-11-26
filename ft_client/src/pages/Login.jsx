@@ -2,12 +2,17 @@ import React from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import SignInForm from '../components/SignInForm';
+import  SignInForm  from '../components/SignInForm';
 import { BsGraphDown } from "react-icons/bs";
 import { BsGraphUp } from "react-icons/bs";
+import { useUser } from '../context/userContext';
 
 
 const Login = () => {
+
+    // const {user, setUser} = useUser();
+    // console.log(data);
+
     return <Container className="p-5">
         <Row className= "bg-dark mt-5 p-5 rounded">
             <Col md={6}><SignInForm />{""}</Col>

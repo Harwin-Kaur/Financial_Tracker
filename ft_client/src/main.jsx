@@ -5,16 +5,14 @@ import './index.css'
 import App from './App.jsx'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-toastify/dist/ReactToastify.css';
-
-
-export const UserContext = createContext();
+import { UserProvider } from './context/userContext';
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <UserContext.Provider value={{ name: "Harwin", add: "Launceston"}}>
+ <StrictMode>
+  <UserProvider>
     <BrowserRouter>
       <App />
     </BrowserRouter>
-    </UserContext.Provider>
-  </StrictMode>,
+  </UserProvider>
+</StrictMode>
 )

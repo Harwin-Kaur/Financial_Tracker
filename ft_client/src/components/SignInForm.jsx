@@ -6,6 +6,7 @@ import { useState} from 'react';
 import { toast } from "react-toastify";
 import {postNewUser, loginUser} from '../../helper/axiosHelper';
 import useForm from '../hooks/useForm';
+import { useUser } from '../context/userContext';
 
 
 const initialState = {
@@ -13,7 +14,9 @@ const initialState = {
   password: "",
 } 
 
- const SignInForm = () => {
+export const SignInForm = () => {
+
+  const {user, setUser} = useUser();
 
   const { form, setForm, handleOnChange } = useForm(initialState);
 
@@ -52,10 +55,11 @@ const handleOnSubmit = async (e) => {
     const {status, message, user, accessJWT} = await pendingResp;
     toast[status](message);
     if (status === "success") {
+       setUser(user);
   localStorage.setItem("accessJWT", accessJWT);
 }
     console.log(user, accessJWT);
-
+   
   };
 
   return (

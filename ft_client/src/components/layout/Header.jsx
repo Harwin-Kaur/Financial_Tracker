@@ -9,16 +9,13 @@ import { TbLogin } from "react-icons/tb";
 import { IoIosCreate } from "react-icons/io";
 import { AiFillDashboard } from "react-icons/ai";
 import { BsBank } from "react-icons/bs";
-import { UserContext } from '../../main';
-// import { useContext } from 'react';
-
+import { useUser, UserContext } from "../../context/userContext";
 
 
 export const Header = () => {
-  const useUser = () => useContext(UserContext);
-  const data = useUser();
-  console.log(data);
-
+    // const data = useUser();
+   
+    
   return (
     <Navbar expand="lg" variant="dark" className="bg-body-dark">
       <Container>
