@@ -2,7 +2,7 @@
 
 ###user
 ###Get user
-GET http://localhost:8000/
+GET http://localhost:8000/api/v1/users
 
 
 ### Post new user

@@ -5,6 +5,7 @@ import { getUserByEmail} from '../models/user/UserModel.js';
 
 import { comparePassword} from '../utils/bcryptjs.js';
 import { signJWT } from '../utils/jwt.js';
+import { auth } from '../Middlewares/authMiddleware.js';
 
 const router = express.Router();
 
@@ -94,7 +95,24 @@ router.post("/login", async (req, res, next) => {
    }
 });
 
-// User profile
+// User profile from the accessJWT
+
+router.get("/", auth, (req, res, next)=> {
+   try{
+
+      //1. Receive the JWT
+
+      res.json({
+      status: "success",
+      message: "GET user route is working"
+   });
+
+   }catch(error){
+      res.status(500).json({
+         error: error.message,
+   });
+}
+})
 
 
 export default router;
